@@ -1,5 +1,9 @@
--- Gui to Lua
--- Version: 3.2
+
+-- LAST UPDATE 2021/03/18
+-- CURRENT VERSION: 1.5
+-- discord.gg/hGd4HVQaD6
+
+----------------------------------------------
 
 -- Instances:
 
@@ -156,7 +160,6 @@ SynapseLogo.ScaleType = Enum.ScaleType.Fit
 -- Scripts:
 
 local function LoadingBarTween()
-	
 	local TotalSize = Backdrop.Size.X.Offset
 	Indicator.Size = UDim2.fromOffset(TotalSize/10, Indicator.Size.Y.Offset)
 	local GrowBy = Indicator.Size.X.Offset
@@ -165,13 +168,11 @@ local function LoadingBarTween()
 		Indicator:TweenSize(UDim2.fromOffset(Indicator.Size.X.Offset+GrowBy, Indicator.Size.Y.Offset), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.5, true)
 		wait(1.5)
 	end
-	
 end
 coroutine.wrap(LoadingBarTween)()
 
 
 local function TextureTween()
-	
 	local Playing = true
 	while Playing do
 		TextureLayer:TweenSize(UDim2.new(0, 978,0, 590), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 1.8, false)
@@ -179,7 +180,6 @@ local function TextureTween()
 		TextureLayer:TweenSize(UDim2.new(0, 782,0, 472), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 1.8, false)
 		wait(2)
 	end
-	
 end
 coroutine.wrap(TextureTween)()
 
@@ -200,7 +200,6 @@ local Tips = {
 }
 
 local function TipChanger()
-	
 	local Running = true
 	while Running do
 		LoaderText.Text = Tips[math.random(1,12)]
