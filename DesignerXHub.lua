@@ -10,6 +10,11 @@
 - New method of loader closing
 - Logo tween
 
+CREDITS:
+
+kind_monki#3002: Lead Developer of the hub
+Yeager#1111: the best person for sexy ui tweening and animations <3
+
 ]]--
 
 ----------------------------------------------
