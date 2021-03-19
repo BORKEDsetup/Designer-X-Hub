@@ -1,7 +1,14 @@
+--[[
 
--- LAST UPDATE 2021/03/18
--- CURRENT VERSION: 1.5
+-- LAST UPDATE 2021/03/19
+-- CURRENT VERSION: 1.5.1
 -- discord.gg/hGd4HVQaD6
+
+1.5.1 CHANGELOG:
+
+- Organized loading screen function wraps
+
+]]--
 
 ----------------------------------------------
 
@@ -157,7 +164,7 @@ SynapseLogo.Image = "http://www.roblox.com/asset/?id=6531006209"
 SynapseLogo.ImageTransparency = 0.400
 SynapseLogo.ScaleType = Enum.ScaleType.Fit
 
--- Scripts:
+-- Scripting:
 
 local function LoadingBarTween()
 	local TotalSize = Backdrop.Size.X.Offset
@@ -169,8 +176,6 @@ local function LoadingBarTween()
 		wait(1.5)
 	end
 end
-coroutine.wrap(LoadingBarTween)()
-
 
 local function TextureTween()
 	local Playing = true
@@ -181,8 +186,6 @@ local function TextureTween()
 		wait(2)
 	end
 end
-coroutine.wrap(TextureTween)()
-
 
 local Tips = {
 	"Does anyone even read these?",
@@ -206,6 +209,10 @@ local function TipChanger()
 		wait(3)
 	end
 end
+
+-- LOADING SCREEN FUNCTION CALLS
+coroutine.wrap(LoadingBarTween)()
+coroutine.wrap(TextureTween)()
 coroutine.wrap(TipChanger)()
 
 print('Test')
