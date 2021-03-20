@@ -18,6 +18,8 @@ Yeager#1111: the best person for sexy ui tweening and animations <3
 ]]--
 
 ----------------------------------------------
+local CurrentVersion = "1.5.2 2021/03/19"
+local DiscordInvite = "discord.gg/hGd4HVQaD6"
 
 -- Instances:
 
@@ -120,7 +122,7 @@ Version.BackgroundTransparency = 1.000
 Version.Size = UDim2.new(0, 92, 0, 30)
 Version.ZIndex = 2
 Version.Font = Enum.Font.Code
-Version.Text = "version: 1.0 2021/03/17"
+Version.Text = CurrentVersion
 Version.TextColor3 = Color3.fromRGB(85, 85, 85)
 Version.TextSize = 11.000
 Version.TextWrapped = true
@@ -133,7 +135,7 @@ Discord.Position = UDim2.new(0.822250664, 0, 0, 0)
 Discord.Size = UDim2.new(0, 139, 0, 30)
 Discord.ZIndex = 2
 Discord.Font = Enum.Font.Code
-Discord.Text = "discord.gg/hGd4HVQaD6"
+Discord.Text = DiscordInvite
 Discord.TextColor3 = Color3.fromRGB(85, 85, 85)
 Discord.TextSize = 11.000
 Discord.TextWrapped = true
