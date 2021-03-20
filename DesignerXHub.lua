@@ -42,12 +42,16 @@ local TextureLayer = Instance.new("ImageLabel")
 local LogoUnderlayer = Instance.new("Frame")
 local UICorner_4 = Instance.new("UICorner")
 local SynapseLogo = Instance.new("ImageLabel")
+local Sound = Instance.new("Sound")
 
 --Properties:
 
 DesignerXHub.Name = "DesignerXHub"
 DesignerXHub.Parent = game.CoreGui
 DesignerXHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Sound.Parent = game.CoreGui
+Sound.SoundId = "5568992074"
 
 -- LOADING SCREEN
 
@@ -232,6 +236,7 @@ local function TipChanger()
 end
 
 -- LOADING SCREEN FUNCTION CALLS
+Sound:Play()
 coroutine.wrap(LoadingBarTween)()
 coroutine.wrap(TextureTween)()
 coroutine.wrap(TipChanger)()
