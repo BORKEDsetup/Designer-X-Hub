@@ -234,11 +234,12 @@ coroutine.wrap(LoadingBarTween)()
 coroutine.wrap(TextureTween)()
 coroutine.wrap(TipChanger)()
 wait(14.5)
-ShadowEffect:destroy()
-LoadingBar:destroy()
-LoaderText:destroy()
-Version:destroy()
-TextureLayer:destroy()
+ShadowEffect:Destroy()
+LoadingBar:Destroy()
+LoaderText:Destroy()
+Version:Destroy()
+TextureLayer:Destroy()
+Discord:Destroy()
 LoadingScreen.Transparency = 1
 
 
@@ -266,6 +267,7 @@ local function alltweens(apos, xpos)
 	-- up = left
 	-- down = right
 	-- normal pos is too left
+
 	LogoUnderlayer:TweenPosition(
 	    UDim2.new(0.38300000, 0, 0.320000006, 0),
 		"Out",
@@ -306,3 +308,15 @@ local function alltweens(apos, xpos)
 end
 
 alltweens(SynapseLogo, xposition)
+print('Test')
+
+--[[
+-------------------------------------------------------------------------------------------------
+
+HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION
+HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION
+HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION
+HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION	HUB CREATION
+
+-------------------------------------------------------------------------------------------------
+]]--
