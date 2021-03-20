@@ -173,33 +173,6 @@ SynapseLogo.ScaleType = Enum.ScaleType.Fit
 
 -- Scripting:
 
-local function vis(trans)
-    LoaderText.TextTransparency = trans
-end
-
-local function vistrue()
-        vis(1)
-        wait(.1)
-        vis(.9)
-        wait(.1)
-        vis(.8)
-        wait(.1)
-        vis(.7)
-        wait(.1)
-        vis(.6)
-        wait(.1)
-        vis(.5)
-        wait(.1)
-        vis(.4)
-        wait(.1)
-        vis(.3)
-        wait(.1)
-        vis(.2)
-        wait(.1)
-        vis(.1)
-        wait(.1)
-end
-
 local function LoadingBarTween()
 	local TotalSize = Backdrop.Size.X.Offset
 	Indicator.Size = UDim2.fromOffset(TotalSize/10, Indicator.Size.Y.Offset)
@@ -236,11 +209,22 @@ local Tips = {
 	"your estimated wait time is 1.5(9)",
 }
 
+local function vis(trans)
+    LoaderText.TextTransparency = trans
+end
+
+local function vistrue()
+	for i = 1, 10 do
+		vis(LoaderText.TextTransparency - 0.1)
+		wait(0.1)
+	end
+end
+
 local function TipChanger()
 	local Running = true
 	while Running do
 		LoaderText.Text = Tips[math.random(1,12)]
-		vistrue()
+		coroutine.wrap(vistrue)()
 		wait(3)
 	end
 end
@@ -256,62 +240,69 @@ LoaderText:destroy()
 Version:destroy()
 TextureLayer:destroy()
 LoadingScreen.Transparency = 1
+
+
 local function alltweens(apos, xpos)
-local TweenService = game:GetService("TweenService")
+	
+	local TweenService = game:GetService("TweenService")
 
-local tweenInfo = TweenInfo.new(
-	0.4, -- The time the tween takes to complete
-	Enum.EasingStyle.Linear, -- The tween style in this case it is Linear
-	Enum.EasingDirection.Out, -- EasingDirection
-	-1, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
-	false, -- Reverse?
-	0 -- Delay
-)
+	local tweenInfo = TweenInfo.new(
+		0.4, -- The time the tween takes to complete
+		Enum.EasingStyle.Linear, -- The tween style in this case it is Linear
+		Enum.EasingDirection.Out, -- EasingDirection
+		-1, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
+		false, -- Reverse?
+		0 -- Delay
+	)
 
 
-apos:TweenPosition(
-    UDim2.new(0.400606185, 0, 0.350000006, 0),
-	"Out",
-	"Quad",
-	0.6, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
-	true
-)
--- up = left
--- down = right
--- normal pos is too left
-LogoUnderlayer:TweenPosition(
-    UDim2.new(0.38300000, 0, 0.320000006, 0),
-	"Out",
-	"Quad",
-	0.6, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
-	true
-)
+	apos:TweenPosition(
+	    UDim2.new(0.400606185, 0, 0.350000006, 0),
+		"Out",
+		"Quad",
+		0.6, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
+		true
+	)
+	-- up = left
+	-- down = right
+	-- normal pos is too left
+	LogoUnderlayer:TweenPosition(
+	    UDim2.new(0.38300000, 0, 0.320000006, 0),
+		"Out",
+		"Quad",
+		0.6, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
+		true
+	)
 
-wait(1)
+	wait(1)
 
-local pos = 0.150000006
-local Tween = TweenService:Create(apos, tweenInfo, {Rotation = 360}) 
-local Tween2 = TweenService:Create(LogoUnderlayer, tweenInfo, {Rotation = 360}) 
-Tween:Play()
-Tween2:Play()
-local function size(var, vector)
-var:TweenSize(
-    UDim2.new(vector),
-	"Out",
-	"Quad",
-	0.6, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
-	true
-)
-end
-size(LogoUnderlayer, 0, 0, 0, 0)
-size(SynapseLogo, 0, 0, 0, 0)
-local visible = 0
-for i = 1, 11 do
-    wait(.1)
-    apos.ImageTransparency = visible
-    LogoUnderlayer.Transparency = visible
-    visible = visible + .1
-end
+	local pos = 0.150000006
+	local Tween = TweenService:Create(apos, tweenInfo, {Rotation = 360}) 
+	local Tween2 = TweenService:Create(LogoUnderlayer, tweenInfo, {Rotation = 360}) 
+	Tween:Play()
+	Tween2:Play()
+	
+	local function size(var, vector)
+	var:TweenSize(
+	    UDim2.new(vector),
+		"Out",
+		"Quad",
+		0.6, -- How many times you want the tween to repeat. If you make it less than 0 it will repeat forever.
+		true
+	)
+	end
+	
+	size(LogoUnderlayer, 0, 0, 0, 0)
+	size(SynapseLogo, 0, 0, 0, 0)
+	
+	local visible = 0
+	
+	for i = 1, 11 do
+	    wait(.1)
+	    apos.ImageTransparency = visible
+	    LogoUnderlayer.Transparency = visible
+	    visible = visible + .1
+	end
 end
 
 alltweens(SynapseLogo, xposition)
